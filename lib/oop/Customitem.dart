@@ -10,7 +10,7 @@ class CustomItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(6),
       padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
       width: double.infinity,
       decoration:
