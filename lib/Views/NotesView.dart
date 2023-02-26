@@ -25,7 +25,15 @@ class NotesView extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: const Color.fromARGB(255, 17, 17, 17),
-          onPressed: (() {}),
+          onPressed: (() {
+            showModalBottomSheet(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                context: context,
+                builder: (context) {
+                  return const NoteBottom();
+                });
+          }),
           child: const Icon(
             Icons.add,
             color: Colors.blue,
