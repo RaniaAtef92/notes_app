@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/Views/widgets/notes_view_body.dart';
-import 'package:note_app/oop/Customitem.dart';
+import 'package:note_app/constants.dart';
+import 'package:note_app/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -13,12 +13,12 @@ class NotesView extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon:const Icon(
                   Icons.search,
                   size: 40,
                 ))
           ],
-          title: Text(
+          title:const Text(
             'Nots',
             style: TextStyle(fontSize: 40),
           ),
@@ -35,8 +35,9 @@ class NotesView extends StatelessWidget {
                 });
           }),
           child: const Icon(
+            
             Icons.add,
-            color: Colors.blue,
+            color: kPrimaryColor,
             size: 30,
           ),
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/oop/CustomTextfield.dart';
-import 'package:note_app/oop/Customitem.dart';
+import 'package:note_app/Views/EditView.dart';
+import 'package:note_app/oop/Custom_Text_Field.dart';
+import 'package:note_app/oop/Custom_Item.dart';
+import 'package:note_app/oop/Custom_button.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
@@ -22,9 +24,14 @@ class NotesViewBody extends StatelessWidget {
   }
 }
 
-class NoteBottom extends StatelessWidget {
+class NoteBottom extends StatefulWidget {
   const NoteBottom({super.key});
 
+  @override
+  State<NoteBottom> createState() => _NoteBottomState();
+}
+
+class _NoteBottomState extends State<NoteBottom> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,6 +46,7 @@ class NoteBottom extends StatelessWidget {
             hint: 'contant',
             maxlins: 5,
           ),
+          CustomButton(text: 'add')
         ],
       ),
     );
