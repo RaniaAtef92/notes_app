@@ -32,22 +32,48 @@ class NoteBottom extends StatefulWidget {
 }
 
 class _NoteBottomState extends State<NoteBottom> {
+  final GlobalKey<FormState> formkey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  String? title, contant;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        children: const [
-          SizedBox(height: 20),
-          CustomTextField(
-            hint: 'title',
-          ),
-          CustomTextField(
-            hint: 'contant',
-            maxlins: 5,
-          ),
-          CustomButton(text: 'add')
-        ],
+      child: Form(
+        key: formkey,
+        autovalidateMode: autovalidateMode,
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            CustomTextField(
+              onsaved: (v) {
+                title = v;
+              },
+              hint: 'title',
+            ),
+            CustomTextField(
+              onsaved: (v) {
+                contant = v;
+              },
+              hint: 'contant',
+              maxlins: 5,
+            ),
+            CustomButton(
+                text: 'add',
+                ontap: () {
+                  if (formkey.currentState!.validate()) {
+                      formkey.currentState!.save();
+                    } else {
+                      autovalidateMode = AutovalidateMode.always;
+                      setState(() {
+
+                      });
+                  }
+                },
+                ),
+          ],
+        ),
       ),
     );
   }

@@ -13,7 +13,7 @@ class CustomItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return EditViwe();
+          return const EditViwe();
         }));
        
         }

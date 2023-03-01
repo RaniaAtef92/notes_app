@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:note_app/constants.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.text,  this.ontap});
+  const CustomButton({super.key, required this.text, this.ontap});
   final String text;
-  final Void Function()? ontap;
+  final  Function()? ontap;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
           child: Center(
               child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
           ))),
     );
