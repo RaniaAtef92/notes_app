@@ -13,12 +13,12 @@ class NotesView extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {},
-                icon:const Icon(
+                icon: const Icon(
                   Icons.search,
                   size: 40,
                 ))
           ],
-          title:const Text(
+          title: const Text(
             'Nots',
             style: TextStyle(fontSize: 40),
           ),
@@ -27,15 +27,15 @@ class NotesView extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 17, 17, 17),
           onPressed: (() {
             showModalBottomSheet(
+                isScrollControlled: true,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 context: context,
                 builder: (context) {
-                  return const NoteBottom();
+                  return const AddNoteBottomSheet();
                 });
           }),
           child: const Icon(
-            
             Icons.add,
             color: kPrimaryColor,
             size: 30,
