@@ -36,20 +36,23 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
   bool isloadind = false;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddnoteCubit, AddnoteState>(
-      listener: (context, state) {
-    if (state is AddnoteSuccess) {
-      Navigator.pop(context);
-    }
-    if (state is AddnoteFailuer) {
-      print('Plese Try Agin');
-    }
-      },
-      builder: (context, state) {
-    return ModalProgressHUD(
-        inAsyncCall: state is AddnoteLodind ? true : false,
-        child: const SingleChildScrollView(child:  NoteBottom()));
-      },
+    return BlocProvider(
+      create: (context) => AddnoteCubit(),
+      child: BlocConsumer<AddnoteCubit, AddnoteState>(
+        listener: (context, state) {
+          if (state is AddnoteSuccess) {
+            Navigator.pop(context);
+          }
+          if (state is AddnoteFailuer) {
+            print('Plese Try Agin ${state.errmessage}');
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+              inAsyncCall: state is AddnoteLodind ? true : false,
+              child: const SingleChildScrollView(child: NoteBottom()));
+        },
+      ),
     );
   }
 }

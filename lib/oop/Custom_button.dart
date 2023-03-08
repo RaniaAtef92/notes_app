@@ -6,14 +6,14 @@ import 'package:note_app/constants.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.text, this.ontap});
   final String text;
-  final  Function()? ontap;
+  final Function()? ontap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: ontap,
       child: Container(
-          margin: const EdgeInsets.only(top: 30),
+          margin: const EdgeInsets.only(top: 30, bottom: 25),
           width: double.infinity,
           height: 50,
           decoration: BoxDecoration(
